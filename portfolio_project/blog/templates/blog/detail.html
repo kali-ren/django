@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<main role="main">
+
+  <section class="jumbotron text-center">
+    <div class="container">
+ 	<img src="{% static 'ctf.png' %}">
+    </div>
+  </section>
+
+  <article>
+ 	 <div class="container">
+ 	 	<div class="row">
+ 	 		<div class="col-lg-8 col-md-10 mx-auto text-justify">
+ 	 			{{ post.body }}
+ 	 		</div>
+ 	 	</div>
+  	</div>
+</article>
+
+
+</main>
+
+{% endblock %}
