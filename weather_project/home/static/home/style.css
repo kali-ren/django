@@ -1,0 +1,10 @@
+body {
+	background-image: url("./weather.jpg");
+	min-height: 100vh;
+}
+
+
+/* navbar */
+.navbar {
+	background-color: #2bbbad;
+}
