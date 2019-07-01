@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>hello, ireland</title>
+</head>
+<body>
+	{% if user.is_authenticated %}
+		<h3> Welcome, {{ user.username }}.</h3>
+	{% else %}
+		<h3> Welcome, anonymous</h3>
+	{% endif %}
+	
+</body>
+</html>
