@@ -11,5 +11,4 @@ urlpatterns = [
 	path('virgo/',  	views.virgo,      name='virgo'),
 	path('createteam/', views.createteam, name='createteam'),
 	path('jointeam/',   views.jointeam,   name='jointeam')
-
 ]
