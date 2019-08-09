@@ -24,7 +24,7 @@ def home(request):
 	return render(request, 'accounts/home.html')
 
 
-def signup(request):#user form valida se ja tem um caboco registrado!!
+def signup(request):
 	if request.user.is_authenticated:
 		return HttpResponseRedirect('/accounts/')	
 
@@ -82,7 +82,6 @@ def login(request):
 		if user is not None:
 			auth_login(request, user)
 			has_team = Player.objects.get(user=user).team
-			#print('nao tem time ') if Player.objects.get(user=user).team is None else print('tem time')
 			if has_team is None:
 				return HttpResponseRedirect(reverse('accounts:virgo'))
 			
@@ -97,7 +96,7 @@ def logout(request):
 	return HttpResponseRedirect(reverse('accounts:home'))
 
 
-@login_required(login_url="accounts/login/")
+@login_required(login_url="/accounts/login/")
 def virgo(request):
 	if has_team(request) == True:
 		return HttpResponseRedirect('/accounts')
@@ -105,8 +104,8 @@ def virgo(request):
 	return render(request,'accounts/virgo.html')
 
 
-@login_required(login_url="accounts/login/")
-def createteam(request):# view para poder playar
+@login_required(login_url="/accounts/login/")
+def createteam(request):
 	if has_team(request) == True:
 		return HttpResponseRedirect('/accounts/')
 	
@@ -136,7 +135,7 @@ def createteam(request):# view para poder playar
 	return render(request, 'accounts/createteam.html', {'team_form': team_form})
 
 
-@login_required(login_url="accounts/login/")
+@login_required(login_url="/accounts/login/")
 def jointeam(request):
 	
 	if has_team(request) == True:
@@ -163,6 +162,6 @@ def jointeam(request):
 			error = {
 				'erro': 'team not exists'
 			}
-			return render(request, 'accounts/jointeam.html', error)#mudar isso ctza
+			return render(request, 'accounts/jointeam.html', error)
 
 	return render(request, 'accounts/jointeam.html')
